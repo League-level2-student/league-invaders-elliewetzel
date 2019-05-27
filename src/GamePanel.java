@@ -18,7 +18,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     Font enter;
     Font over;
     Font space;
+    Font over2;
+    Font over3;
     Timer frameDraw;
+    Rocketship rocket = new Rocketship(250, 700, 50, 50);
     
     void updateMenuState() {   }
     void updateGameState() {   }
@@ -40,22 +43,29 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     void drawGameState(Graphics g) { 
     	g.setColor(Color.BLACK);
     	g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+    	rocket.draw(g);
     }
     void drawEndState(Graphics g)  {
     	g.setColor(Color.RED);
     	g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
-    	
     	g.setFont(over);
     	g.setColor(Color.YELLOW);
-    	g.drawString("GAME OVER", 40, 200);
+    	g.drawString("GAME OVER", 100, 200);
+    	g.setFont(over2);
+    	g.drawString("You killed enemies", 140, 400);
+    	g.setFont(over3);
+    	g.drawString("Press ENTER to restart", 110, 600);
+    	//g.drawString(iterator, x, y);
     	
     }
 
     public GamePanel() {
     	titleFont = new Font("Arial", Font.PLAIN, 48);
     	enter = new Font("Arial", Font.PLAIN, 24);
-    	over = new Font("Arial", Font.PLAIN, 24);
+    	over = new Font("Arial", Font.PLAIN, 48);
     	space = new Font("Arial", Font.PLAIN, 24);
+    	over2 = new Font("Arial", Font.PLAIN, 24);
+    	over3 = new Font("Arial", Font.PLAIN, 26);
     	frameDraw = new Timer(1000/60, this);
     	frameDraw.start();
     }
@@ -99,10 +109,24 @@ public void keyPressed(KeyEvent e) {
 			currentState++;
 		}
 	}
+
+	
 	if (e.getKeyCode()==KeyEvent.VK_UP) {
 	    System.out.println("UP");
+	    rocket.up();
 	}
-	
+	else if (e.getKeyCode()==KeyEvent.VK_DOWN) {
+	    System.out.println("DOWN");
+	    rocket.down();
+	}
+	else if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
+	    System.out.println("RIGHT");
+	    rocket.right();
+	}
+	else if (e.getKeyCode()==KeyEvent.VK_LEFT) {
+	    System.out.println("LEFT");
+	    rocket.left();
+	}
 }
 @Override
 public void keyReleased(KeyEvent e) {

@@ -21,7 +21,7 @@ void setup() {
 	frame.add(panel);
 	frame.setVisible(true);
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+	frame.addKeyListener(panel);
 
 }
 
