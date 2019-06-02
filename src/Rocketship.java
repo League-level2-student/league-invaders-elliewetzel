@@ -19,17 +19,13 @@ public class Rocketship extends GameObject {
 		y+=speed;
 		if (y > 790){
 		y = 750;
-		
- }
-		
+ }	
 	}
 	public void right() {
 		x+=speed;
 		if(x > 490) {
 		x = 450; 
-		
-  }
-		
+  }	
 	}
 	public void left() {
 		x-=speed;
@@ -37,11 +33,9 @@ public class Rocketship extends GameObject {
 		    x = 1; 
 		  }
 	}
-	
 	void draw(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(x, y, width, height);
 	}
-	
 }
 
