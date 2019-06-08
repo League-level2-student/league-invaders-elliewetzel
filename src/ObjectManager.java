@@ -9,8 +9,8 @@ ArrayList<Alien> Aliens = new ArrayList<Alien>();
 Random random = new Random();
 
 public ObjectManager(Rocketship rock) {
-	rock = new Rocketship(80, 80, 10, 10);
-	//this.rock = rock;	
+	//rock = new Rocketship(80, 80, 10, 10);
+	this.rock = rock;	
 
 }
 void addProjectile(Projectile p) {
@@ -25,14 +25,14 @@ void update() {
 		Aliens.get(i).update();
 		
 			if(Aliens.get(i).equals(LeagueInvaders.HEIGHT)) {	
-			isActive = false;	
+			Aliens.get(i).isActive = false;	
 		}
 	}
 	for(int i = 0; i < project.size(); i++) {
 		project.get(i).update();
 		
 		if(project.get(i).equals(LeagueInvaders.HEIGHT))  {
-			isActive = false;
+			Aliens.get(i).isActive = false;
 		}
 	}
 }
@@ -47,11 +47,13 @@ void draw(Graphics g) {
 }
 
 void purgeObjects() {
-	//for(int i = 0; i < Aliens.size(); i++) {
-	if(Aliens.get(i).equals(isActive = false)) {
-		Aliens.remove(i); wrong, check end of step 7
+	
+	
+	for(int i = 0; i < Aliens.size(); i++) {
+	if(Aliens.get(i).isActive = false) {
+		Aliens.remove(i); // wrong, check end of step 7, not for sure because states for each loop is like for(int age: age)
 	}
-		//}
+		}
 
 
 }
