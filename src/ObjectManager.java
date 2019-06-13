@@ -1,8 +1,10 @@
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ObjectManager {
+public class ObjectManager implements ActionListener{
 Rocketship rock;
 ArrayList<Projectile> project = new ArrayList<Projectile>();
 ArrayList<Alien> Aliens = new ArrayList<Alien>();
@@ -50,12 +52,17 @@ void purgeObjects() {
 	
 	
 	for(int i = 0; i < Aliens.size(); i++) {
-	if(Aliens.get(i).isActive = false) {
-		Aliens.remove(i); // wrong, check end of step 7, not for sure because states for each loop is like for(int age: age)
+	if(!Aliens.get(i).isActive) {
+		Aliens.remove(i); 
 	}
 		}
 
 
+}
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	addAlien();
 }
 
 
