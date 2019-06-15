@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     Font space;
     Font over2;
     Font over3;
+    Font over4;
     Timer frameDraw;
     Rocketship rocket = new Rocketship(250, 700, 50, 50);
     ObjectManager manager = new ObjectManager(rocket);
@@ -45,6 +46,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     void updateMenuState() {   }
     void updateGameState() {
     	manager.update();
+    if(rocket.isActive==false) {
+    	currentState = END;
+    }
     }
     void updateEndState()  {  }
     void drawMenuState(Graphics g) {  
@@ -59,6 +63,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     	g.setFont(space);
     	g.setColor(Color.YELLOW);
     	g.drawString("Press SPACE for instructions", 80, 600);
+    	
+    	
     }
     void drawGameState(Graphics g) { 
     	if (gotImage) {
@@ -79,7 +85,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     	g.drawString("You killed enemies", 140, 400);
     	g.setFont(over3);
     	g.drawString("Press ENTER to restart", 110, 600);
-    	
+    g.setFont(over4);	
+    g.drawString("Your score is" + manager.getScore(), 110, 700);
     }
     public GamePanel() {
     	titleFont = new Font("Arial", Font.PLAIN, 48);
@@ -88,6 +95,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     	space = new Font("Arial", Font.PLAIN, 24);
     	over2 = new Font("Arial", Font.PLAIN, 24);
     	over3 = new Font("Arial", Font.PLAIN, 26);
+    	over4 = new Font("Arial", Font.PLAIN, 26);
     	frameDraw = new Timer(1000/60, this);
     	frameDraw.start();
     	if (needImage) {
@@ -136,7 +144,9 @@ public void keyPressed(KeyEvent e) {
 		}
 		else if(currentState==GAME) {
 			currentState=END;
-			alienSpawn.stop();	
+			alienSpawn.stop();
+			rocket = new Rocketship(250, 700, 50, 50);
+			manager = new ObjectManager(rocket);
 	}
 	}
 	else if (e.getKeyCode()==KeyEvent.VK_UP) {

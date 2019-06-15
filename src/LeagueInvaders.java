@@ -6,6 +6,8 @@ public class LeagueInvaders {
 	final static int HEIGHT = 800;
 	GamePanel panel;
 	
+	
+	
 public static void main(String[] args) {
 	LeagueInvaders league = new LeagueInvaders();
 	league.setup();
