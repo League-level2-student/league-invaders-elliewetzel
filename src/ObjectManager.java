@@ -81,7 +81,7 @@ public class ObjectManager implements ActionListener {
 					project.get(j).isActive = false;
 					score++;
 				}
-			}
+			} score number
 		}
 	}
 
