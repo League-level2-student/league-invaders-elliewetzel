@@ -86,7 +86,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     	g.setFont(over3);
     	g.drawString("Press ENTER to restart", 110, 600);
     g.setFont(over4);	
-    g.drawString("Your score is" + manager.getScore(), 110, 700);
+    g.drawString("Your score is " + manager.getScore(), 110, 700);
     }
     public GamePanel() {
     	titleFont = new Font("Arial", Font.PLAIN, 48);
@@ -147,8 +147,6 @@ public void keyPressed(KeyEvent e) {
 		else if(currentState==GAME) {
 			currentState=END;
 			alienSpawn.stop();
-			/*rocket = new Rocketship(250, 700, 50, 50);
-			manager = new ObjectManager(rocket);*/
 	}
 	}
 	else if (e.getKeyCode()==KeyEvent.VK_UP) {
