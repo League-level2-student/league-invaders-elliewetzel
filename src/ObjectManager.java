@@ -79,9 +79,10 @@ public class ObjectManager implements ActionListener {
 				if (project.get(j).collisionBox.intersects(Aliens.get(i).collisionBox)) {
 					Aliens.get(i).isActive = false;
 					project.get(j).isActive = false;
-					score++;
+					score = score+1;
+					//score++;
 				}
-			} score number
+			} //score number
 		}
 	}
 

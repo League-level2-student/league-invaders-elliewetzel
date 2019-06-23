@@ -137,6 +137,8 @@ public void keyPressed(KeyEvent e) {
 	if(e.getKeyCode()==KeyEvent.VK_ENTER) {
 		if(currentState == END) {
 			currentState = MENU;
+			rocket = new Rocketship(250, 700, 50, 50);
+			manager = new ObjectManager(rocket);
 		} 
 		else if(currentState==MENU) {
 			currentState = GAME;
@@ -145,8 +147,8 @@ public void keyPressed(KeyEvent e) {
 		else if(currentState==GAME) {
 			currentState=END;
 			alienSpawn.stop();
-			rocket = new Rocketship(250, 700, 50, 50);
-			manager = new ObjectManager(rocket);
+			/*rocket = new Rocketship(250, 700, 50, 50);
+			manager = new ObjectManager(rocket);*/
 	}
 	}
 	else if (e.getKeyCode()==KeyEvent.VK_UP) {
