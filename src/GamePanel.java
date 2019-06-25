@@ -63,8 +63,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     	g.setFont(space);
     	g.setColor(Color.YELLOW);
     	g.drawString("Press SPACE for instructions", 80, 600);
-    	
-    	
     }
     void drawGameState(Graphics g) { 
     	if (gotImage) {
